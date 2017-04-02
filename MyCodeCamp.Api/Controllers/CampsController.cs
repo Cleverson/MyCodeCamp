@@ -63,6 +63,7 @@ namespace MyCodeCamp.Api.Controllers
         }
 
         [EnableCors("Sdias")]
+        [Authorize(Policy = "SuperUsers")]
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]CampModel model)
         {

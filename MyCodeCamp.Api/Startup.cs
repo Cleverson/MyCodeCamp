@@ -95,7 +95,11 @@ namespace MyCodeCamp.Api
                         .WithMethods("GET")
                         .AllowAnyOrigin();
                 });
+            });
 
+            services.AddAuthorization(cfg =>
+            {
+                cfg.AddPolicy("SuperUsers", p => p.RequireClaim("SuperUser", "True"));
             });
 
             // Add framework services.
